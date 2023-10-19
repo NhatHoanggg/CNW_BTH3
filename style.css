@@ -1,0 +1,16 @@
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.frame-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-container{
+    display: flex;
+    flex-direction: row;
+}
+

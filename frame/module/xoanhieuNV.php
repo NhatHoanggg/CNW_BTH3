@@ -11,7 +11,7 @@
     mysqli_select_db($link, "dulieu1");
     $sql = "SELECT * FROM nhanvien";
     $rs = mysqli_query($link, $sql);
-    echo '<form method="post">';
+    echo '<form method="post" action = "xulyxoatatca.php">';
     echo '<table border="1" width="100%">';
     echo '<caption> BẢNG NHÂN VIÊN </caption>';
     echo '<tr> <th>ID NV</th> <th>HO Ten</th> <th>IDPB</th> <th>DIA CHI</th> </tr>';
@@ -31,7 +31,7 @@
         <td>' . " " . '</td> 
         <td>' . " " . '</td> 
         <td>' . " " . '</td> 
-        <td width="100px">' . '<input type="submit" name="delete_btn" value="Xóa các mục đã chọn">' . '</td> 
+        <td width="100px">' . '<input type="submit" name="delete_btn" value="Xóa các NV đã chọn">' . '</td> 
     </tr>';
 
     echo '</table>';
@@ -40,29 +40,7 @@
     mysqli_free_result($rs);
     mysqli_close($link);
 
-    if (isset($_POST['delete_btn'])) {
-      
-            // Kết nối đến cơ sở dữ liệu MySQL
-            $link = mysqli_connect("localhost", "root", "") or die("Couldn't connect to MySQL");
-            mysqli_select_db($link, "dulieu1");
-
-            $delete = $_POST['delete'];
-            foreach ( $delete as $key => $value ){ 
-                // echo $key, "=", $value, "\n"; 
-
-                $sql = "DELETE FROM nhanvien WHERE idnv = '$value'";
-
-                if (mysqli_query($link, $sql)) {
-                    echo "Xóa nhân viên ".$value." đã chọn thành công!";
-                } else {
-                    echo "Xóa nhân viên ".$value." đã chọn thất bại!";
-                }
-            }
-
-            
-            mysqli_close($link);
-
-    }
+   
 ?>
 
 </body>

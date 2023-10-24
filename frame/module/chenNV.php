@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <form action="" method="post">
+    <form action="xulychenNV.php" method="post">
         <label for="hoten">Nhập ID nhân viên: </label>
         <input type="text" name="idnv" id="idnv" required>  <br>
         <label for="hoten">Nhập họ tên nhân viên: </label>

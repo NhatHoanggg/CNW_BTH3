@@ -11,11 +11,9 @@
         $idnv = $_GET['id'];
 
         // echo $idnv;
-        // Kết nối đến cơ sở dữ liệu MySQL
         $link = mysqli_connect("localhost", "root", "") or die("Couldn't connect to MySQL");
         mysqli_select_db($link, "dulieu1");
 
-        // Sử dụng truy vấn xóa nhân viên dựa trên ID
         $sql = "DELETE FROM nhanvien WHERE idnv = ?  ";
         $stmt = mysqli_prepare($link, $sql);
         mysqli_stmt_bind_param($stmt, "s", $idnv);

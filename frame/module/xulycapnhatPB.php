@@ -6,28 +6,13 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-    
-    $idpb = @($_GET["IDPB"]);
-    echo "Cập nhật thông tin phòng ban có IDPB = ".$idpb;
-    
-    ?>
-    <form method="post">
-
-
-        <label for="tenpb">Tên Phòng Ban Mới:</label>
-        <input type="text" name="tenpb" id="tenpb" required><br>
-
-        <label for="mota">Mô Tả Mới:</label>
-        <input type="text" name="mota" id="mota" required><br>
-
-        <button type="submit">Cập nhật</button>
-    </form>
+  
     
     <?php
     
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $idpb = $_POST['idpb'];
         $tenpb = $_POST['tenpb'];
         $mota = $_POST['mota'];
 
@@ -40,6 +25,7 @@
 
         if (mysqli_stmt_execute($stmt)) {
             echo "Cập nhật phòng ban thành công!";
+            header("location:capnhatPB.php");
         } else {
             echo "Cập nhật phòng ban thất bại!";
         }

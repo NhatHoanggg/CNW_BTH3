@@ -38,9 +38,14 @@
         $num_rows = @(mysqli_num_rows($result));
 
         if ($num_rows == 1) {
+            
             echo '
             <script>
                 parent.frames["t2"].location.href = "newt2.php";
+            </script>';
+            echo '
+            <script>
+                parent.frames["t3"].location.href = "home.php";
             </script>';
         } else {
             echo "failed";

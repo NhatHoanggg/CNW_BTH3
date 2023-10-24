@@ -23,7 +23,7 @@
     while ($row = mysqli_fetch_array($rs)){
         echo
         '<tr> 
-        <td><a href="xulycapnhatPB.php?IDPB='.$row['idpb'].' ">'.$row['idpb'].'</a></td> 
+        <td><a href="form_capnhat.php?IDPB='.$row['idpb'].' ">'.$row['idpb'].'</a></td> 
         <td>'.$row['tenpb'].'</td> 
         <td>'.$row['mota'].'</td> 
         </tr> ' ;

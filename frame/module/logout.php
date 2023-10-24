@@ -11,6 +11,10 @@
     <script>
         parent.frames["t2"].location.href = "../t2.php";
     </script>';
+    echo '
+            <script>
+                parent.frames["t3"].location.href = "home.php";
+            </script>';
     ?>
 </body>
 </html>

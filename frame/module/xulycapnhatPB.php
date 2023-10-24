@@ -13,6 +13,8 @@
     
     ?>
     <form method="post">
+
+
         <label for="tenpb">Tên Phòng Ban Mới:</label>
         <input type="text" name="tenpb" id="tenpb" required><br>
 

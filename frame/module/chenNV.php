@@ -12,7 +12,7 @@
         <input type="text" name="idnv" id="idnv" required>  <br>
         <label for="hoten">Nhập họ tên nhân viên: </label>
         <input type="text" name="hoten" id="hoten" required>  <br>
-        <label for="hoten">Nhập ID phòng ban: </label>
+        <label for="hoten">Chọn phòng ban: </label>
         <!-- <input type="text" name="idpb" id="idpb" required>  <br> -->
         <select name="idpb" id="selectPB">
             <?php

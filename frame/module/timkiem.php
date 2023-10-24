@@ -23,7 +23,7 @@
     $input = @($_GET["textBox"]);
 
     $cb1Value = @($_GET['checkbox1']);
-    $cb2Value = @($_GET['checkbox2']);
+    $cb2Value = @($_GET['checkbox2']);  
     $cb3Value = @($_GET['checkbox3']);
 
     
@@ -60,7 +60,7 @@
         $sql .= " $cb3Value LIKE '%$input%' ";
     }
 
-    echo $sql;
+    // echo $sql;
 
     $rs = mysqli_query($link,$sql);
     echo '<table border = "1" width = "100%">';

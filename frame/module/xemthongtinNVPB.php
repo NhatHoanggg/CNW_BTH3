@@ -5,6 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    *{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 800;
+        font-size: 16px;
+    }
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        text-align: center;
+        margin-top: 20px;
+    }
+
+
+    table {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-collapse: collapse;
+    }
+
+    caption {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    th {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline ;
+        
+    }
+</style>
 <body>
 <?php
     $input = @($_GET["IDPB"]);
@@ -18,7 +67,7 @@
     echo '<table border = "1" width = "100%">';
     echo '<caption> BẢNG NHÂN VIÊN </caption>';
 
-    echo '<tr> <th>ID NV</th> <th>HO Ten</th> <th>IDPB</th> <th>DIA CHI</th> </tr> ';
+    echo '<tr> <th>ID NV</th> <th>Tên NV</th> <th>ID PB</th> <th>Địa chỉ</th></tr> ';
     
     while ($row = mysqli_fetch_array($rs)){
         echo

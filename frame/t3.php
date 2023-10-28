@@ -6,6 +6,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="t3.css">
 </head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background-color: rgb(0, 255, 47);
+    }
+</style>
 <body>
     
 </body>

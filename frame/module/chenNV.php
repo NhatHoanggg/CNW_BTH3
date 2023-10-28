@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    *{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    body { 
+        padding: 0;
+        margin: 0;
+    }
+
+    
+    form { 
+        display: flex;
+        flex-direction: column;
+        align-items:start;        
+        padding-left: 50px;
+    }
+    
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin-top: 20px;
+        text-align: center;
+
+    }
+
+
+    label {
+        display: block;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    input[type="text"]{
+        width: 50%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100px;
+        font-size: 20px;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+</style>
 <body>
     
     <form action="xulychenNV.php" method="post">
@@ -31,54 +91,10 @@
         </select> <br>
         <label for="hoten">Nhập địa chỉ</label>
         <input type="text" name="diachi" id="diachi" required >  <br>
-        <input type="submit" value="ok">
+        <input type="submit" value="OK">
     </form>
 
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $idnv = $_POST['idnv'];
-        $hoten = $_POST['hoten'];
-        $idpb = $_POST['idpb'];
-        $diachi = $_POST['diachi'];
-
-        $link = mysqli_connect("localhost", "root", "") or die("Couldn't connect to MySQL");
-        mysqli_select_db($link, "dulieu1");
-        
-            
-            $sql = "INSERT INTO nhanvien (idnv, hoten, idpb, diachi) VALUES (?, ?, ?, ?)";
-            $stmt = mysqli_prepare($link, $sql);
-            
-            mysqli_stmt_bind_param($stmt, "ssss",$idnv, $hoten, $idpb, $diachi);
-            
-            
-            if (mysqli_stmt_execute($stmt)) {
-                echo "Thêm nhân viên thành công!";
-                $sql = "SELECT * FROM nhanvien";
-                $rs = mysqli_query($link,$sql);
-                echo '<table border = "1" width = "100%">';
-                echo '<caption> BẢNG NHÂN VIÊN </caption>';
-                
-                echo '<tr> <th>ID NV</th> <th>HO Ten</th> <th>IDPB</th> <th>DIA CHI</th> </tr> ';
-                
-                while ($row = mysqli_fetch_array($rs)){
-                    echo
-                    '<tr> 
-                    <td>'.$row['idnv'].'</td> 
-                    <td>'.$row['hoten'].'</td> 
-                    <td>'.$row['idpb'].'</td> 
-                    <td>'.$row['diachi'].'</td> 
-                    </tr> ' ;
-            }
-
-            echo '</table>';
-        } else {
-            echo "Thêm nhân viên thất bại!";
-        }
-        
-        mysqli_stmt_close($stmt);
-        mysqli_close($link);
-    }
-    ?>
+    
 
 
 </body>

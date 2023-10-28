@@ -4,58 +4,80 @@
 <head>
     <title>Đăng nhập</title>
 </head>
+<style>
+    *{
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    body { 
+        padding: 0;
+        margin: 0;
+    }
+
+    form { 
+        display: flex;
+        flex-direction: column;
+        align-items:center;        
+    }
+    
+
+    h2 {
+        font-size: 24px;
+        color: #333;
+        margin-top: 20px;
+        text-align: center;
+
+    }
+
+
+    label {
+        display: block;
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 50%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 200px;
+        font-size: 20px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+
+</style>
 <body>
     <h2>Đăng nhập</h2>
-    <form method="post" >
+    <form method="post" action = "xulylogin.php">
         <label for="username">Tên đăng nhập:</label>
-        <input type="text" name="username" id="username" required><br>
+        <input type="text" name="username" id="username" placeholder="Nhập username" required><br>
 
         <label for="password">Mật khẩu:</label>
-        <input type="password" name="password" id="password" required><br>
+        <input type="password" name="password" id="password" placeholder="Nhập password" required><br>
 
         <button type="submit">Đăng nhập</button>
         
     </form>
 
     
-
-    <?php
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $link = mysqli_connect("localhost", "root", "") or die("Couldn't connect to SQLServer");
-        mysqli_select_db($link, "dulieu1");
-
-        $sql = "SELECT * FROM admin WHERE username = ? AND password = ?";
-        $stmt = mysqli_prepare($link, $sql);
-        mysqli_stmt_bind_param($stmt, "ss", $username, $password);
-        mysqli_stmt_execute($stmt);
-
-        $result = mysqli_stmt_get_result($stmt);
-
-        $num_rows = @(mysqli_num_rows($result));
-
-        if ($num_rows == 1) {
-            
-            echo '
-            <script>
-                parent.frames["t2"].location.href = "newt2.php";
-            </script>';
-            echo '
-            <script>
-                parent.frames["t3"].location.href = "home.php";
-            </script>';
-        } else {
-            echo "failed";
-        }
-
-        mysqli_stmt_close($stmt);
-        mysqli_close($link);
-    }
-        
-    ?>    
 
 </body>
 </html>
